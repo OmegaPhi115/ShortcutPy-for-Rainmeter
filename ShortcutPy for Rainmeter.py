@@ -18,13 +18,12 @@ def new_shortcut():
     name_of_shortcut = input("Name of the Shortcut")
     name_of_shortcut_file = name_of_shortcut
     if os.path.exists(current_location + "ini files\\" + name_of_shortcut + "\\" + name_of_shortcut_file + ".ini"):
-        print("Warning: The shortcut already exist. it will be replace with the new shortcut")
         file_conflit = int(input("Warning: The shortcut already exist, Do you want to replace it (1) or create a variant ? (2)"))
         if file_conflit == "1":
             file_conflit = "replace"
         elif file_conflit == "2":
             i = 0
-            while os.path.exists(current_location + "ini files\\" + name_of_shortcut + "\\" + name_of_shortcut_file):
+            while os.path.exists(current_location + "ini files\\" + name_of_shortcut + "\\" + name_of_shortcut_file + ".ini"):
                 i = i + 1
                 name_of_shortcut_file = name_of_shortcut_file + "alt " + str(i)
 
@@ -56,6 +55,11 @@ def new_shortcut():
         fichier.write("Information=" + "\n")############################################
         fichier.write("License=" + "\n")################################################
         fichier.write("Version=" + "\n")################################################
+
+    thisFile = current_location + "ini files\\" + name_of_shortcut + "\\" + name_of_shortcut_file + ".txt"
+    base = os.path.splitext(thisFile)[0]
+    os.rename(thisFile, base + ".ini")
+
     print("file created")
     return "success"
 #mainloop
