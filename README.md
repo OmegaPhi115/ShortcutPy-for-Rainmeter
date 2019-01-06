@@ -1,0 +1,1 @@
+# ShortcutPy for Rainmeter
