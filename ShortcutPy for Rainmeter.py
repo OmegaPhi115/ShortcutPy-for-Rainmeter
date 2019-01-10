@@ -25,7 +25,7 @@ def new_shortcut():
             i = 0
             while os.path.exists(current_location + "ini files\\" + name_of_shortcut + "\\" + name_of_shortcut_file + ".ini"):
                 i = i + 1
-                name_of_shortcut_file = name_of_shortcut_file + "alt " + str(i)
+                name_of_shortcut_file = name_of_shortcut_file + " alt " + str(i)
 
 
     image_name = input("Image Name ?")##    debug patacorn by justpatacorn.jpg
@@ -44,7 +44,7 @@ def new_shortcut():
         fichier.write("Meter=Image" + "\n")#############################################
         fichier.write("ImageName=" + image_name_file + "\n")
         fichier.write("H=90" + "\n")####################################################
-        fichier.write("LeftMouseUpAction=[" + path_to_executable +"]" + "\n")
+        fichier.write('LeftMouseUpAction=["' + path_to_executable +'"]' + "\n")
         fichier.write("" + "\n")########################################################
         fichier.write("[Rainmeter]" + "\n")#############################################
         fichier.write("Update=1000" + "\n")#############################################

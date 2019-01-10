@@ -1,0 +1,15 @@
+[aaa]
+Meter=Image
+ImageName=#@#Images\debug patacorn by justpatacorn.jpg
+H=90
+LeftMouseUpAction=[C:\\Users\\François\\Documents\\speak 2 me.vbs]
+
+[Rainmeter]
+Update=1000
+
+[Metadata]
+Name=aaa
+Author=
+Information=
+License=
+Version=
