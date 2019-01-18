@@ -1,5 +1,7 @@
 #startup
 import os, sys, winsound
+import tkinter as tk
+from tkinter import filedialog
 
 def path_exist(path):
     if os.path.exists(path):
@@ -11,9 +13,17 @@ def newdirectory(newdoss):
     if not os.path.exists(newdoss):
         os.makedirs(newdoss)
 
+def ask_file(init_dir = "//"):
+    a = filedialog.askopenfilename(initialdir = init_dir,title = "Select file")
+    return a
+
+ask_file()
+
 # function that create the new shortcurt
 def new_shortcut():
+    fen = tk.Tk()
     current_location = str(os.getcwd()) + "\\"
+
     # asking variables
     name_of_shortcut = input("Name of the Shortcut")
     name_of_shortcut_file = name_of_shortcut
