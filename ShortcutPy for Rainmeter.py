@@ -1,7 +1,9 @@
-#startup
+#####startup
 import os, sys, winsound
 import tkinter as tk
 from tkinter import filedialog
+
+#####functions
 
 def newdirectory(newdoss):
     if not os.path.exists(newdoss):
@@ -66,6 +68,8 @@ def new_shortcut():
 
     print("file created")
     return "success"
+
+
 #mainloop
 while 1:
     a = input("Create a new shortcut ? Y/N")
