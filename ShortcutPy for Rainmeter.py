@@ -3,12 +3,6 @@ import os, sys, winsound
 import tkinter as tk
 from tkinter import filedialog
 
-def path_exist(path):
-    if os.path.exists(path):
-        return "ok"
-    else:
-        return "nope"
-
 def newdirectory(newdoss):
     if not os.path.exists(newdoss):
         os.makedirs(newdoss)
