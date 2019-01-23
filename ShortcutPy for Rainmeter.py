@@ -28,8 +28,6 @@ Widget_button_start = 0
 
 Widget_button_image = 2
 
-if gerard == "jean":
-    lol()
 
 
 
