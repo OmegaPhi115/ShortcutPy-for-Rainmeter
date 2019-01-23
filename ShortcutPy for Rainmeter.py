@@ -3,64 +3,78 @@ import os, sys, winsound
 import tkinter as tk
 from tkinter import filedialog
 
-#####
-fenetre_principale = tk.Tk()
+image_path = ""
+shortcut_path = ""
+name = ""
+feedback = ""
 
-####
-Widget_label_name = 0
-Widget_label_image = 0
-Widget_label_shorcut = 0
+def ask_file(init_dir = "//"):
+    global image_path
+    a = filedialog.askopenfilename(initialdir = init_dir,title = "Select file")
+    image_path = a
 
-Widget_label_feedback = 0
-#Widget_label_percent
-
-###
-
-Widget_entry_name = 0
-Widget_entry_image = 0
-Widget_entry_shorcut = 0
-
-###
-
-Widget_button_image = 0
-Widget_button_shortcut = 0
-Widget_button_start = 0
-
-Widget_button_image = 2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#####functions
+def ask_fileb(init_dir = "//"):
+    global shortcut_path
+    a = filedialog.askopenfilename(initialdir = init_dir,title = "Select file")
+    shortcut_path = a
 
 def newdirectory(newdoss):
     if not os.path.exists(newdoss):
         os.makedirs(newdoss)
 
-def ask_file(init_dir = "//"):
-    a = filedialog.askopenfilename(initialdir = init_dir,title = "Select file")
-    return a
+def start():
+    global feedback
+    print("I have started")
+    feedback = "Started"
+
+#####
+fenetre_principale = tk.Tk()
+
+####
+Widget_label_name = tk.Label(fenetre_principale, text="Name of the shortcut: ")
+Widget_label_name.grid(row=0, column=0)
+
+Widget_label_image = tk.Label(fenetre_principale, text="Path to the image: ")
+Widget_label_image.grid(row=1, column=0)
+
+Widget_label_shorcut = tk.Label(fenetre_principale, text="Path to the shortcut: ")
+Widget_label_shorcut.grid(row=2, column=0)
+
+Widget_label_feedback = tk.Label(fenetre_principale, text="")
+Widget_label_feedback.grid(row=4, column=0, columnspan=5)
+#Widget_label_percent
+
+###
+
+Widget_entry_name = tk.Entry(fenetre_principale)
+Widget_entry_name.grid(row=0, column=1, columnspan=2, padx=5, pady=5)
+Widget_entry_image = tk.Label(fenetre_principale, text= "")
+Widget_entry_image.grid(row=1, column=1, columnspan=2, padx=5, pady=5)
+Widget_entry_shorcut = tk.Label(fenetre_principale, text= "")
+Widget_entry_shorcut.grid(row=2, column=1, columnspan=2, padx=5, pady=5)
+
+###
+
+Widget_button_image = tk.Button(fenetre_principale, text = "...", command = ask_file)
+Widget_button_image.grid(row=1, column=5, padx=5, pady=5)
+Widget_button_shortcut = tk.Button(fenetre_principale, text = "...", command = ask_fileb)
+Widget_button_shortcut.grid(row=2, column=5, padx=5, pady=5)
+Widget_button_start = tk.Button(fenetre_principale, text = "Create Shortcut", command = start)
+Widget_button_start.grid(row=3, column=2, padx=5, pady=5)
+
+while True:
+    #mainloop
+    name = Widget_entry_name.get()
+    Widget_entry_image.configure(text = str(image_path))
+    Widget_entry_shorcut.configure(text = str(shortcut_path))
+    Widget_label_feedback.configure(text = str(feedback))
+    fenetre_principale.update_idletasks()
+    fenetre_principale.update()
+
+
+
+
+#####functions
 
 # function that create the new shortcurt
 # def new_shortcut():
